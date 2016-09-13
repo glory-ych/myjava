@@ -1,9 +1,11 @@
 package map;
 
+
 /**
  * Created by yangch on 2016/9/8.
  */
 public class MyHashMap {
+    private final int MAX_CAPACITY = 1 << 30;
     private final double FACTOR = 0.73;
     private final int INIT_LENGTH = 16;
     private MyEntry[] table;
@@ -37,7 +39,7 @@ public class MyHashMap {
         if (key == null) {
             return this.putNullKey(value);
         }
-        if (size / table.length > FACTOR) {
+        if (size / table.length >= FACTOR) {
             this.resize();
         }
         int index = this.index(hash(key));
@@ -61,8 +63,18 @@ public class MyHashMap {
         return null;
     }
 
-    public void resize() {
+    public int size() {
+        return size;
+    }
 
+    private void resize() {
+        if (table.length > MAX_CAPACITY) {
+
+        }
+        int newLength = table.length << 2;
+        MyEntry[] newTable = new MyEntry[newLength];
+        System.arraycopy(table, 0, newTable, 0, table.length);
+        table = newTable;
     }
 
     private Object putNullKey(Object value) {
