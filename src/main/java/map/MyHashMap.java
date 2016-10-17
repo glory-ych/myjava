@@ -4,11 +4,11 @@ package map;
 /**
  * Created by yangch on 2016/9/8.
  */
-public class MyHashMap {
+public class MyHashMap<K, V> {
     private final int MAX_CAPACITY = 1 << 30;
     private final double FACTOR = 0.73;
     private final int INIT_LENGTH = 16;
-    private MyEntry[] table;
+    private MyEntry<K, V>[] table;
     private int size;
 
     public MyHashMap() {
@@ -19,14 +19,14 @@ public class MyHashMap {
         table = new MyEntry[length];
     }
 
-    public Object get(Object key) {
+    public V get(Object key) {
         if (key == null) {
-            return table[0];
+            return table[0].getValue();
         }
         int index = this.index(hash(key));
-        MyEntry entry = table[index];
+        MyEntry<K, V> entry = table[index];
         if (entry != null) {
-            for (MyEntry e = entry; e != null; e = e.next) {
+            for (MyEntry<K, V> e = entry; e != null; e = e.next) {
                 if (e.getKey().equals(key)) {
                     return e.getValue();
                 }
@@ -99,5 +99,9 @@ public class MyHashMap {
         int h = key.hashCode();
         h ^= (h >>> 20) ^ (h >>> 12);
         return h ^ (h >>> 7) ^ (h >>> 4);
+    }
+
+    public static <OK,OV> MyHashMap<OK,OV> getInstance() {
+        return new MyHashMap<OK,OV>();
     }
 }

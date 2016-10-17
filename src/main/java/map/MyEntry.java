@@ -3,16 +3,16 @@ package map;
 /**
  * Created by yangch on 2016/9/8.
  */
-public class MyEntry {
+public class MyEntry<K,V> {
     public int hash;
-    public Object key;
-    public Object value;
+    public K key;
+    public V value;
     public MyEntry next;
 
     public MyEntry() {
     }
 
-    public MyEntry(Object key, Object value, MyEntry next) {
+    public MyEntry(K key, V value, MyEntry next) {
         this.key = key;
         this.value = value;
         this.next = next;
@@ -26,19 +26,19 @@ public class MyEntry {
         this.hash = hash;
     }
 
-    public Object getKey() {
+    public K getKey() {
         return key;
     }
 
-    public void setKey(Object key) {
+    public void setKey(K key) {
         this.key = key;
     }
 
-    public Object getValue() {
+    public V getValue() {
         return value;
     }
 
-    public void setValue(Object value) {
+    public void setValue(V value) {
         this.value = value;
     }
 
