@@ -1,4 +1,4 @@
-package equals;
+package effectivejava.chapter3;
 
 /**
  * Created by yangch on 2016/10/14.

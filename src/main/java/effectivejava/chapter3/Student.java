@@ -1,9 +1,11 @@
 package effectivejava.chapter3;
 
+import java.io.Serializable;
+
 /**
  * Created by yangch on 2016/10/15.
  */
-public final class Student implements Cloneable {
+public final class Student implements Cloneable,Serializable {
     private int age;
 
     public int getAge() {
@@ -21,8 +23,8 @@ public final class Student implements Cloneable {
         this.age = age;
     }
 
-    @Override
-    protected Student clone() throws CloneNotSupportedException {
-        return (Student) super.clone();
-    }
+//    @Override
+//    protected Student clone() throws CloneNotSupportedException {
+//        return (Student) super.clone();
+//    }
 }
