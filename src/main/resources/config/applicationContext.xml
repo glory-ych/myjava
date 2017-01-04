@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<beans>
-    <bean id="projectService" class="spring.beans.ProjectService" />
-    <bean id="projectApi" class="spring.beans.ProjectApi">
-        <!--<property name="projectService" ref="projectService"/>-->
-    </bean>
-</beans>
