@@ -11,6 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class UserController {
     @RequestMapping("/say")
     public void say(String name) {
-        System.out.println("hello," + name);
+        System.out.println("hello,world..." + name);
     }
 }
