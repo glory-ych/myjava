@@ -1,4 +1,4 @@
-package com.glory.service.study.spring;
+package com.glory.service.study.spring.other;
 
 import com.glory.service.study.annotation.MyResource;
 import org.dom4j.Attribute;

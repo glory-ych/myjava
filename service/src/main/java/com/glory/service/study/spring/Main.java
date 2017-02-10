@@ -1,10 +1,9 @@
 package com.glory.service.study.spring;
 
 import com.glory.service.study.spring.beans.ProjectApi;
+import com.glory.service.study.spring.other.MyApplicationContext;
 import com.glory.service.study.spring.po.Project;
-import com.glory.service.study.spring.beans.ProjectApi;
 import com.glory.service.study.spring.beans.ProjectService;
-import com.glory.service.study.spring.po.Project;
 import org.junit.Test;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

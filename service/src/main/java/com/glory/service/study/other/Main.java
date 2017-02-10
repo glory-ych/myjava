@@ -18,11 +18,20 @@ import java.util.concurrent.TimeUnit;
  * Created by yangch on 2016/9/27.
  */
 public class Main {
+
+    @Test
+    public void demo04() {
+        Random random = new Random();
+        for (int i = 0; i < 20; i++)
+            System.out.println(random.nextInt(3));
+    }
+
     @Test
     public void demo03() {
-        Object obj=null;
-        System.out.println((String)obj);
+        Object obj = null;
+        System.out.println((String) obj);
     }
+
     @Test
     public void demo02() {
         Set<Object> set1 = new HashSet<Object>();

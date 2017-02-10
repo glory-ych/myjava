@@ -21,13 +21,20 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class Main2 {
     @Test
+    public void demo17() {
+        String str = (String) null;
+        System.out.println(str=="null");
+    }
+
+    @Test
     public void demo16() {
-        String obj="a";
+        String obj = "a";
         System.out.println(Long.valueOf(obj));
     }
+
     @Test
     public void demo15() {
-        Object obj="";
+        Object obj = "";
         System.out.println(obj.getClass());
     }
 
