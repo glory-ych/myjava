@@ -6,7 +6,9 @@ import java.util.List;
  * Created by yangch on 2017/2/8 0008.
  */
 public class Main5 {
-    private static volatile int n = 0;
+    private static volatile Integer n = 0;
+    private static volatile Long m = 0l;
+    private static volatile Short s = 0;
 
     public static void main(String[] args) {
 //        List<Integer> list=new ArrayList<>();

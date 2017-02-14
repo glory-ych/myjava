@@ -2,7 +2,7 @@
 <Configuration status="off" monitorInterval="1800">
 
     <Properties>
-        <property name="projectName">coupon-transfer</property>
+        <property name="projectName">myjava</property>
 
         <property name="logPattern">[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%t] %-5level %logger{36}-%msg%n</property>
         <property name="logPath">./logs</property>
@@ -58,11 +58,7 @@
 
     <Loggers>
 
-        <logger name="com.chuchujie.mall.coupon.transfer.dao.mapper" level="debug"/>
-        <logger name="com.chuchujie.mall.coupon.transfer.old.mapper" level="debug"/>
-        <logger name="com.chuchujie.mall.coupon.transfer" level="info"/>
-
-        <Root level="warn">
+        <Root level="debug">
             <AppenderRef ref="Console" />
             <AppenderRef ref="RollingFile" />
             <AppenderRef ref="WarnRollingFile" />

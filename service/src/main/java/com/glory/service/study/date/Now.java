@@ -1,4 +1,4 @@
-package com.glory.service.study.other;
+package com.glory.service.study.date;
 
 import com.glory.service.study.utils.MD5Util;
 import org.junit.Test;
@@ -19,6 +19,7 @@ public class Now {
     @Test
     public void demo08() {
         System.out.println(System.currentTimeMillis() / 1000);
+        System.out.println(System.currentTimeMillis());
         //1486179264
         //1486366525
     }
@@ -108,7 +109,7 @@ public class Now {
         //System.out.println(System.currentTimeMillis() / 1000);
         DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 //        System.out.println(format.format(new Date()));
-        System.out.println(format.format(new Date(1473120799000L)));
+        System.out.println(format.format(new Date(1489980006000L)));
 //        System.out.println(format.format(new Date(1482930099000L)));
         //System.out.println(new Date("2016-12-28 23:59:59").getTime() / 1000);
         //System.out.println(format.parse("2016-12-28 21:59:59").getTime() / 1000);
