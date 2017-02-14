@@ -15,8 +15,9 @@ public class Main4 {
     }
 
     public static void main(String[] args) {
-        Float str=null;
-        System.out.println(str.toString());
+        System.out.println("http://localhost:8080/api/user/user/list/couponuser/couponsns?couponSnList=".trim().length());
+        //Float str=null;
+        //System.out.println(str.toString());
         //System.out.println(0f);
         //System.out.println("start..." + System.currentTimeMillis());
         //met1();
