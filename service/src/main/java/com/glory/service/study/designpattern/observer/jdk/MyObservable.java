@@ -9,6 +9,6 @@ public class MyObservable extends Observable {
     public void action(){
         super.setChanged();
         System.out.println("action...");
-        notifyObservers();
+        super.notifyObservers();
     }
 }

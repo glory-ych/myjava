@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+    <bean id="people1,people2" class="com.glory.service.study.spring.po.People">
+        <property name="name" value="ych"/>
+        <property name="name" value="tom" belong="people2"/>
+        <property name="age" value="18"/>
+        <property name="color" value="yello"/>
+    </bean>
+</beans>

@@ -3,9 +3,30 @@ package com.glory.service.study.other;
 /**
  * Created by yangch on 2016/11/8 0008.
  */
-public class People {
+public class People implements Comparable {
+    public static void main(String[] args) {
+        People p = new People();
+        People p1 = new People();
+        System.out.println(p);
+//        p.print();
+        p1.say();
+    }
+
+    private void say() {
+        System.out.println(People.this);
+//        People.this.print();
+    }
+
     private String name;
     private Integer age;
+
+    public People() {
+    }
+
+    public People(String name, Integer age) {
+        this.name = name;
+        this.age = age;
+    }
 
     public String getName() {
         return name;
@@ -29,6 +50,18 @@ public class People {
     }
 
     public void print() {
-        System.out.println("people print...");
+        System.out.println("people print..." + this);
+    }
+
+
+//    @Override
+//    public String toString() {
+//        return age != null ? this.getAge().toString() : "";
+//    }
+
+    @Override
+    public int compareTo(Object o) {
+        People people = (People) o;
+        return this.getAge().compareTo(people.getAge());
     }
 }

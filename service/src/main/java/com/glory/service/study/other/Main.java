@@ -8,16 +8,90 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.XmlWebApplicationContext;
 
 import javax.validation.Valid;
+import java.lang.reflect.Array;
 import java.lang.reflect.Constructor;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.ReadWriteLock;
+import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
  * Created by yangch on 2016/9/27.
  */
 public class Main {
+    @Test
+    public void demo08() {
+        Map<String, String> map = new HashMap<>();
+        String val = new String("val");
+        map.put("key", val);
+        System.out.println(map.get("key"));
+        val.replace("v", "H");
+        System.out.println(map.get("key"));
+    }
+
+    @Test
+    public void demo07() {
+        Man man = new Man();
+        man.setName("ych");
+        man.setAge(18);
+        System.out.println(man);
+        People people = (People) man;
+        System.out.println(people);
+    }
+
+    class People {
+        private String name;
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        @Override
+        public String toString() {
+            return this.getName();
+        }
+    }
+
+    class Man extends People {
+        private int age;
+
+        public void setAge(int age) {
+            this.age = age;
+        }
+
+        public int getAge() {
+            return age;
+        }
+
+        @Override
+        public String toString() {
+            return this.getName() + "---" + this.getAge();
+        }
+    }
+
+    @Test
+    public void demo06() {
+        ReentrantReadWriteLock reentrantReadWriteLock;
+        ReentrantLock reentrantLock;
+        ReadWriteLock readWriteLock;
+        char[] arr = {'a', 'b', 'c'};
+        System.out.println(Array.getInt(arr, 1));
+    }
+
+    @Test
+    public void demo05() {
+        Class clazz = Main.class.getComponentType();
+        System.out.println(clazz.getName());
+    }
 
     @Test
     public void demo04() {

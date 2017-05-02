@@ -19,7 +19,6 @@ public class SerializableClone {
         ObjectOutputStream oos = new ObjectOutputStream(baos);
         oos.writeObject(student);
         oos.close();
-
         ByteArrayInputStream bais=new ByteArrayInputStream(baos.toByteArray());
         ObjectInputStream ois=new ObjectInputStream(bais);
         Student student1= (Student) ois.readObject();

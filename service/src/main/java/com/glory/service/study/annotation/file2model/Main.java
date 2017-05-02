@@ -29,10 +29,12 @@ public class Main {
                     value = bundle.getString(name);
                     PropertyDescriptor pd = new PropertyDescriptor(field.getName(), pig.getClass());
                     method = pd.getWriteMethod();
+                    System.out.println(method.getName());
                     Class<?>[] paramClazz = method.getParameterTypes();
                     if (paramClazz.length > 0) {
                         for (Class clazz : paramClazz) {
                             if (clazz.getSimpleName().equals(int.class.getSimpleName())) {
+                                field.setAccessible(true);
                                 field.set(pig, Integer.parseInt(value));
                             } else if (clazz.getSimpleName().equals(String.class.getSimpleName())) {
                                 method.invoke(pig, value);

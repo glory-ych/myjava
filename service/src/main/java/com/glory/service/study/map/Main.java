@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Created by yangch on 2016/9/8.
@@ -21,5 +22,6 @@ public class Main {
         MyHashMap<String, List<String>> myHashMap = MyHashMap.getInstance();
         System.out.println(myHashMap);
         Map map = new HashMap<>();
+        Map map1 = new ConcurrentHashMap<>();
     }
 }

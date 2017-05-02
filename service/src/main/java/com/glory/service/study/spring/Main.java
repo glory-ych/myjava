@@ -1,12 +1,10 @@
 package com.glory.service.study.spring;
 
 import com.glory.service.study.spring.beans.ProjectApi;
+import com.glory.service.study.spring.beans.ProjectService;
 import com.glory.service.study.spring.other.MyApplicationContext;
 import com.glory.service.study.spring.po.Project;
-import com.glory.service.study.spring.beans.ProjectService;
 import org.junit.Test;
-import org.springframework.context.support.AbstractApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
@@ -15,10 +13,16 @@ import java.lang.reflect.Field;
  * Created by yangch on 2016/9/9.
  */
 public class Main {
-    public static void main(String[] args) {
-        AbstractApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
-        //applicationContext.start();
+
+    @Test
+    public void demo06() {
+        MyApplicationContext applicationContext = new MyApplicationContext("myApplicationContext.xml");
+
     }
+//    public static void main(String[] args) {
+//        AbstractApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+//        //applicationContext.start();
+//    }
 
     @Test
     public void demo05() throws Exception {

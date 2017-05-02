@@ -8,6 +8,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -109,7 +110,7 @@ public class Now {
         //System.out.println(System.currentTimeMillis() / 1000);
         DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 //        System.out.println(format.format(new Date()));
-        System.out.println(format.format(new Date(1489980006000L)));
+        System.out.println(format.format(new Date(1489161599000L)));
 //        System.out.println(format.format(new Date(1482930099000L)));
         //System.out.println(new Date("2016-12-28 23:59:59").getTime() / 1000);
         //System.out.println(format.parse("2016-12-28 21:59:59").getTime() / 1000);
@@ -117,6 +118,11 @@ public class Now {
         //System.out.println(dayFormat.parse("2017-12-31").getTime() / 1000);
         //System.out.println("now..."+new Date().getTime()/1000);
         //System.out.println(new Date().getTime() / 1000);
+
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.DAY_OF_MONTH, -30);
+        long num = cal.getTime().getTime() / 1000;
+        System.out.println(format.format(new Date(num * 1000)));
     }
 
     @Test

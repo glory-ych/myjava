@@ -17,13 +17,17 @@ public class Demo01 {
         //System.out.println(Demo01.class.getClassLoader().getResource("/"));
         String path2 = ClassLoader.getSystemResource("").getPath();
         String path3 = Demo01.class.getResource("Demo01.class").getPath();
-        String path4 = Demo01.class.getResource("text.txt").getPath();
+        String path4 = Demo01.class.getResource("").getPath();
         String path5 = System.getProperty("/application.com.glory.study.properties");
-        System.out.println(path5);
+        String path6 = Thread.currentThread().getContextClassLoader().getResource("text.txt").getPath();
+        String path7 = Demo01.class.getResource("/").getPath();
         System.out.println(path1);
         System.out.println(path2);
         System.out.println(path3);
         System.out.println(path4);
+        System.out.println(path5);
+        System.out.println(path6);
+        System.out.println(path7);
     }
 
     @Test

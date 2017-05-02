@@ -35,9 +35,14 @@ public class Student<K, V> {
     }
 
     public static void main(String[] args) {
-        Student student=new Student();
+        Student student = new Student();
         System.out.println(student.getK("yyy"));
 
         System.out.println(Student.get("kus").toString());
+    }
+
+    @Override
+    public String toString() {
+        return this.getName() + "_" + this.getAge();
     }
 }

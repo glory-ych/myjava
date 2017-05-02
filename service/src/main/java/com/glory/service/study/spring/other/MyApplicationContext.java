@@ -10,6 +10,7 @@ import java.io.InputStream;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,6 +25,7 @@ public class MyApplicationContext {
     private Document document;
     private Element root;
     private Map<String, Class<?>> allBeans;
+    private List<MyBean> beans = new ArrayList<>();
 
     public MyApplicationContext() {
         this.path = DEFAULT_PATH;
@@ -55,8 +57,37 @@ public class MyApplicationContext {
                     }
                 }
             }
+            if (allBeans != null && allBeans.size() > 0) {
+                inject();
+            }
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    private void inject() {
+        if (root != null) {
+            List<Element> beanList = root.elements("bean");
+            for (Element bean : beanList) {
+                Attribute idAttr = bean.attribute("id");
+                String[] ids = idAttr.getValue().split(",");
+                Attribute clazzAttr = bean.attribute("class");
+                Map<String, MyBean> map = new HashMap<>();
+                for (String id : ids) {
+                    map.put(id, new MyBean(id, clazzAttr.getValue(), new ArrayList<>()));
+                }
+                List<Element> propList = bean.elements("property");
+                List<MyProPerty> myProPertyList = new ArrayList<>();
+                for (Element property : propList) {
+                    Attribute nameAttr = property.attribute("name");
+                    Attribute valueAttr = property.attribute("value");
+                    Attribute belongAttr = property.attribute("belong");
+                    myProPertyList.add(new MyProPerty(nameAttr != null ? nameAttr.getValue() : null, valueAttr != null ? valueAttr.getValue() : null, belongAttr != null ? belongAttr.getValue() : null));
+                }
+                for (MyProPerty property : myProPertyList) {
+                    map.get(property.getBelong()).getProperties().add(property);
+                }
+            }
         }
     }
 
@@ -138,5 +169,83 @@ public class MyApplicationContext {
             throw new RuntimeException("bean not exist");
         }
         return null;
+    }
+
+    class MyProPerty {
+        private String name;
+        private String value;
+        private String belong;
+
+        public MyProPerty() {
+        }
+
+        public MyProPerty(String name, String value, String belong) {
+            this.name = name;
+            this.value = value;
+            this.belong = belong;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        public void setValue(String value) {
+            this.value = value;
+        }
+
+        public String getBelong() {
+            return belong;
+        }
+
+        public void setBelong(String belong) {
+            this.belong = belong;
+        }
+    }
+
+    class MyBean {
+        private String id;
+        private String clazz;
+        private List<MyProPerty> properties;
+
+        public MyBean() {
+        }
+
+        public MyBean(String id, String clazz, List<MyProPerty> properties) {
+            this.id = id;
+            this.clazz = clazz;
+            this.properties = properties;
+        }
+
+        public String getId() {
+            return id;
+        }
+
+        public void setId(String id) {
+            this.id = id;
+        }
+
+        public String getClazz() {
+            return clazz;
+        }
+
+        public void setClazz(String clazz) {
+            this.clazz = clazz;
+        }
+
+        public List<MyProPerty> getProperties() {
+            return properties;
+        }
+
+        public void setProperties(List<MyProPerty> properties) {
+            this.properties = properties;
+        }
     }
 }

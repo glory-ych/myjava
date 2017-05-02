@@ -13,15 +13,16 @@ public class MyMethodInterceptor implements MethodInterceptor {
     /**
      * 被代理对象
      */
-    private CglibSubject cglibSubject;
+    //private CglibSubject cglibSubject;
 
     /**
      * 创建代理对象
+     *
      * @param cglibSubject
      * @return
      */
-    public CglibSubject getInstance(CglibSubject cglibSubject) {
-        this.cglibSubject = cglibSubject;
+    public CglibSubject getInstance() {
+        //this.cglibSubject = cglibSubject;
         Enhancer enhancer = new Enhancer();
         enhancer.setSuperclass(CglibSubject.class);
         enhancer.setCallback(this);
@@ -30,6 +31,7 @@ public class MyMethodInterceptor implements MethodInterceptor {
 
     /**
      * 回调方法
+     *
      * @param obj
      * @param method
      * @param args
@@ -39,6 +41,9 @@ public class MyMethodInterceptor implements MethodInterceptor {
      */
     @Override
     public Object intercept(Object obj, Method method, Object[] args, MethodProxy proxy) throws Throwable {
-        return proxy.invokeSuper(obj, args);
+        System.out.println("before...");
+        Object object = proxy.invokeSuper(obj, args);
+        System.out.println("after...");
+        return object;
     }
 }
